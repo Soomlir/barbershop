@@ -1,3 +1,10 @@
-@import "base/mq";
+@import "base/fonts";
 @import "base/global";
-@import "blocks/visually-hidden";
+@import "base/visually-hidden";
+@import "base/variables";
+@import "blocks/page";
+@import "blocks/page-header";
+@import "blocks/main-nav";
+@import "blocks/site-list";
+@import "blocks/user-list";
+@import "blocks/stats";
