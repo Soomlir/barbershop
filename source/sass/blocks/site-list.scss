@@ -21,6 +21,20 @@
       margin-right: 0;
     }
   }
+
+  &--active {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: #826550;
+    }
+  }
 }
 
 .site-list__item a[href] {
@@ -34,6 +48,19 @@
       color: #ffffff;
       background-color: #000000;
       opacity: 0.3;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    &:hover {
+      color: #000000;
+      background-color: #ffffff;
+    }
+
+    &:active {
+      color: rgba(0, 0, 0, 0.3);
+      background-color: #ffffff;
+      opacity: 1;
     }
   }
 }
@@ -51,4 +78,12 @@
   background-color: #826550;
   border-top: 1px solid #886e5b;
   border-bottom: 1px solid #71543f;
+
+  @media (min-width: $tablet-width) {
+    padding: 0;
+    padding-top: 25px;
+    padding-bottom: 23px;
+    background: none;
+    border: none;
+  }
 }
