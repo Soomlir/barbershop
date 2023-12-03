@@ -10,7 +10,11 @@
 	<body class="page__body">
 		<header class="page-header">
 			<a class="page-header__logo" href="#!">
-				<img src="img/logotype-mobile.svg" width="226" height="30" alt="Барбершоп «Бородинский»">
+				<picture>
+					<source media="(min-width: 1200px)" srcset="../img/logotype-desktop.svg">
+					<source media="(min-width: 768px)" srcset="../img/logotype-tablet.svg">
+					<img src="img/logotype-mobile.svg" width="226" height="30" alt="Барбершоп «Бородинский»">
+				</picture>
 			</a>
 			<nav class="main-nav main-nav--closed main-nav--nojs">
 				<button class="main-nav__toggle" type="button">
@@ -40,49 +44,57 @@
 							<a
 								class="user-list__login js-login" href="login.html">
 								{# <svg class="user-list__login-icon"> #}
-
+							<svg class="user-list__login-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<path d="M7 2H14V14H7V16H16V0H7V2Z" fill="white"></path>
+								<path d="M7 9H0V7H7V4L11 8L7 12V9Z" fill="white"></path>
+							</svg>
 								<span>Войти</span>
 							</a>
 						</li>
-				</ul>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<main class="page-main">{# Сюда подставляется содержимое одноименного блока из файла страницы, в котором прописано подключение layout #}{% block main %}
+				{# Если на странице нет такого блока, используется это содержимое по умолчанию #}
+				Страница в разработке
+			{% endblock %}
+		</main>
+		<footer class="page-footer">
+			<div class="page-footer__wrapper">
+				<div class="page-footer__contacts contacts">
+					<b class="contacts__title">Барбершоп «Бородинский»</b>
+					<p class="contacts__text">
+						г. Санкт-Петербург, ул. Большая Конюшенная 19/8<br>
+						<a class="contacts__phone" href="tel:+78125556666">
+							<span class="contacts__phone-mobile">Тел.:</span>
+							+7 (812) 555-66-66
+						</a>
+					</p>
+				</div>
+				<div class="page-footer__social social">
+					<b class="social__title">Давайте дружить!</b>
+					<ul class="social__list">
+						<li class="social__item">
+							<a class="social__link social__link--vkontakte" href="https://vk.com/htmlacademy">Мы в Вконтакте</a>
+						</li>
+						<li class="social__item">
+							<a class="social__link social__link--facebook" href="https://www.facebook.com/htmlacademy">Мы в Фейсбуке</a>
+						</li>
+						<li class="social__item">
+							<a class="social__link social__link--instagram" href="https://www.instagram.com/htmlacademy">Мы в Инстаграмме</a>
+						</li>
+					</ul>
+				</div>
+				<div class="page-footer__copyright copyright">
+					<b class="copyright__text">Разработано:</b>
+					<a class="copyright__link" href="https://htmlacademy.ru/intensive/adaptive">HTML Academy</a>
+				</div>
 			</div>
-		</nav>
-</header>
-<main class="page-main">{# Сюда подставляется содержимое одноименного блока из файла страницы, в котором прописано подключение layout #}{% block main %}
-	{# Если на странице нет такого блока, используется это содержимое по умолчанию #}
-	Страница в разработке
-{% endblock %}</main><footer class="page-footer">
-<div class="page-footer__wrapper">
-	<div class="page-footer__contacts contacts">
-		<b class="contacts__title">Барбершоп «Бородинский»</b>
-		<p class="contacts__text">
-			г. Санкт-Петербург, ул. Большая Конюшенная 19/8<br>
-			<a class="contacts__phone" href="tel:+78125556666">
-				<span class="contacts__phone-mobile">Тел.:</span>
-				+7 (812) 555-66-66
-			</a>
-		</p>
-	</div>
-	<div class="page-footer__social social">
-		<b class="social__title">Давайте дружить!</b>
-		<ul class="social__list">
-			<li class="social__item">
-				<a class="social__link social__link--vkontakte" href="https://vk.com/htmlacademy">Мы в Вконтакте</a>
-			</li>
-			<li class="social__item">
-				<a class="social__link social__link--facebook" href="https://www.facebook.com/htmlacademy">Мы в Фейсбуке</a>
-			</li>
-			<li class="social__item">
-				<a class="social__link social__link--instagram" href="https://www.instagram.com/htmlacademy">Мы в Инстаграмме</a>
-			</li>
-		</ul>
-	</div>
-	<div class="page-footer__copyright copyright">
-		<b class="copyright__text">Разработано:</b>
-		<a class="copyright__link" href="https://htmlacademy.ru/intensive/adaptive">HTML Academy</a>
-	</div>
-</div></footer>{% block modal %}{% endblock %}{% include 'base/scripts.twig' %}<script>
-var navMain = document.querySelector('.main-nav');
+		</footer>
+		{% block modal %}{% endblock %}
+		{% include 'base/scripts.twig' %}<script>
+			var navMain = document.querySelector('.main-nav');
 var navToggle = document.querySelector('.main-nav__toggle');
 
 navMain.classList.remove('main-nav--nojs');
@@ -95,4 +107,7 @@ navMain.classList.add('main-nav--opened');
 navMain.classList.add('main-nav--closed');
 navMain.classList.remove('main-nav--opened');
 }
-});</script></body></html>
+});
+		</script>
+	</body>
+</html>
